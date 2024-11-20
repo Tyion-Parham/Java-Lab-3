@@ -1,5 +1,4 @@
 package GUI;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -30,7 +29,11 @@ public class SortPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 String selectedColumn = (String) columnComboBox.getSelectedItem();
                 String filterValue = filterTextField.getText();
-                statsTable.applySorting(selectedColumn, filterValue);
+
+                // Command Pattern
+                Command sortCommand = new SortCommand(statsTable, selectedColumn, filterValue);
+                // Execute the command
+                sortCommand.execute();
             }
         });
 

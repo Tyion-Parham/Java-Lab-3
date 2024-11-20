@@ -6,6 +6,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import java.awt.*;
+import java.util.Comparator;
 import java.util.List;
 
 public class StatsTable extends JPanel {
@@ -33,6 +34,6 @@ public class StatsTable extends JPanel {
             return; // Invalid column name
         }
 
-        sorter.setRowFilter(RowFilter.regexFilter("(?i)^" + value, columnIndex));
+        sorter.setRowFilter(RowFilter.regexFilter("(?i)" + value, columnIndex));
     }
 }
